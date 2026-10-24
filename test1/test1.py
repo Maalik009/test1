@@ -1,4 +1,21 @@
-name = input("What is your name? ")
-name = name.strip()  # Remove any whitespace
-name = name.title()  # Capitalize the first letter of each word
-print(f"Hello, {name}")
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+@app.route("/topics")
+def topics():
+    return render_template("topics.html")
+
+
+def main():
+    app.run()
+
+
+if __name__ == "__main__":
+    main()
